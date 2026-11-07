@@ -1,0 +1,183 @@
+/* Archetype 6: Prismatic Angled Slices (qingyunticloud.sbs) */
+:root {
+  --primary: #0284c7;
+  --secondary: #06b6d4;
+  --accent: #7dd3fc;
+  --bg: #04090e;
+  --panel: #0a1722;
+  --border: #142f44;
+  --text: #f0f9ff;
+  --muted: #83a2b7;
+  --link-color: #7dd3fc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; overflow-x: hidden; }
+a { color: var(--link-color); text-decoration: none; }
+a:visited { color: var(--link-color); }
+a:hover { color: var(--primary); text-decoration: underline; }
+
+/* Trapezoid Angled Header */
+.angle-nav { background: rgba(10, 23, 34, 0.95); border-bottom: 2px solid var(--primary); padding: 16px 0; position: sticky; top: 0; z-index: 99; }
+.angle-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.angle-nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.angle-logo { font-size: 22px; font-weight: 900; color: var(--text); display: flex; align-items: center; gap: 8px; clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); background: var(--panel); padding: 6px 20px 6px 12px; }
+.angle-menu { list-style: none; display: flex; gap: 20px; }
+.angle-menu a { font-size: 14px; font-weight: 700; color: var(--muted); }
+.angle-menu a:hover { color: var(--accent); }
+.btn-angle-cta { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff !important; padding: 10px 24px; font-weight: 800; font-size: 14px; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); text-decoration: none !important; }
+
+/* Diagonal Angled Slice Hero */
+.skew-hero { position: relative; padding: 80px 0 100px; }
+.skew-bg-slice { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(2, 132, 199, 0.1), transparent); transform: skewY(-3deg); transform-origin: top left; z-index: 1; pointer-events: none; }
+.skew-hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+.skew-hero-title { font-size: 46px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+.skew-hero-title span { color: var(--secondary); }
+.skew-hero-desc { font-size: 18px; color: var(--muted); margin-bottom: 32px; }
+
+/* Zig-Zag Dynamic Strips */
+.zigzag-strip { padding: 48px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 60px 0; background: rgba(10, 23, 34, 0.6); }
+.zigzag-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.zigzag-card { background: var(--panel); border: 1px solid var(--border); clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%); padding: 32px 24px; }
+.zigzag-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--accent); }
+.zigzag-card p { font-size: 14px; color: var(--muted); }
+
+/* Floating Prism Pricing Cards */
+.prism-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 60px 0; }
+.prism-card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; text-align: center; position: relative; transition: transform 0.2s; }
+.prism-card:hover { transform: translateY(-8px); border-color: var(--secondary); }
+.prism-card.featured { border-color: var(--primary); background: linear-gradient(180deg, var(--panel), rgba(2, 132, 199, 0.1)); }
+.prism-price { font-size: 40px; font-weight: 900; margin: 16px 0; }
+
+/* Geometric Mosaic Footer */
+.angle-footer { background: #03060a; border-top: 1px solid var(--border); padding: 60px 0 30px; margin-top: 80px; }
+.mosaic-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+.mosaic-col h4 { font-size: 15px; color: var(--accent); margin-bottom: 16px; }
+.mosaic-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+
+@media (max-width: 900px) {
+  .skew-hero-inner { grid-template-columns: 1fr; }
+  .zigzag-grid { grid-template-columns: 1fr; }
+  .prism-pricing { grid-template-columns: 1fr; }
+  .mosaic-grid { grid-template-columns: 1fr; }
+  .angle-menu { display: none; }
+}
+
+
+/* ==========================================================================
+   Hero SVG Motion Core & Animation Keyframes (Guaranteed Visibility)
+   ========================================================================== */
+.motion-art-frame {
+  width: 100% !important;
+  max-width: 480px !important;
+  min-height: 280px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+
+.motion-svg {
+  width: 100% !important;
+  max-width: 480px !important;
+  height: auto !important;
+  min-height: 260px !important;
+  display: block !important;
+  overflow: visible !important;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.65)) !important;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes creamBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes berryFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(4deg); }
+}
+
+@keyframes strawShake {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+@keyframes bubbleFloat {
+  0% { transform: translateY(0); opacity: 0.25; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(-24px); opacity: 0; }
+}
+
+@keyframes ringFloat {
+  0%, 100% { transform: translateY(0) rotate(-12deg); }
+  50% { transform: translateY(-10px) rotate(-8deg); }
+}
+
+@keyframes runeShimmer {
+  0%, 100% { opacity: 0.35; stroke-dashoffset: 0; }
+  50% { opacity: 1; stroke-dashoffset: 24; }
+}
+
+@keyframes spinCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes stepPulse {
+  0%, 100% { opacity: 0.7; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+}
+
+@keyframes cloudDrift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(16px); }
+}
+
+@keyframes rayAscend {
+  0% { stroke-dashoffset: 20; opacity: 0.2; }
+  50% { opacity: 0.95; }
+  100% { stroke-dashoffset: 0; opacity: 0.2; }
+}
+
+.glow-pulse { animation: glowPulse 4s ease-in-out infinite; transform-origin: center; }
+.cream-bounce { animation: creamBounce 3.5s ease-in-out infinite; }
+.berry-float { animation: berryFloat 3s ease-in-out infinite; transform-origin: 230px 85px; }
+.straw-shake { animation: strawShake 4s ease-in-out infinite; transform-origin: 210px 250px; }
+.bubble-float-1 { animation: bubbleFloat 3s ease-in-out infinite; }
+.bubble-float-2 { animation: bubbleFloat 4.2s ease-in-out infinite 0.8s; }
+.bubble-float-3 { animation: bubbleFloat 3.6s ease-in-out infinite 1.5s; }
+
+.ring-float { animation: ringFloat 5s ease-in-out infinite; }
+.rune-shimmer { animation: runeShimmer 3s ease-in-out infinite; }
+.orbital-spin { animation: spinCW 25s linear infinite; transform-origin: 230px 180px; }
+.ring-spin-cw { animation: spinCW 18s linear infinite; transform-origin: 230px 180px; }
+.ring-spin-ccw { animation: spinCCW 24s linear infinite; transform-origin: 230px 180px; }
+
+.step-pulse-1 { animation: stepPulse 3s ease-in-out infinite 0s; }
+.step-pulse-2 { animation: stepPulse 3s ease-in-out infinite 0.7s; }
+.step-pulse-3 { animation: stepPulse 3s ease-in-out infinite 1.4s; }
+.step-pulse-4 { animation: stepPulse 3s ease-in-out infinite 2.1s; }
+.cloud-drift-1 { animation: cloudDrift 6s ease-in-out infinite; }
+.cloud-drift-2 { animation: cloudDrift 7s ease-in-out infinite 1s; }
+.ray-ascend { animation: rayAscend 2.5s linear infinite; }
+.crystal-spin { animation: spinCW 12s linear infinite; transform-origin: center; }
+.mint-leaf-float { animation: berryFloat 4s ease-in-out infinite; transform-origin: 230px 95px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
